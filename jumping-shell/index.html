@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Jumping Shell Unblocked - ClassRoom6x</title>
+<meta content="classroom6x.gitlab.io" name="website">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" id="viewport" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<!-- added this line for Poki -->
+<script>(() => {
+	var e = function(e) {
+			var n = RegExp("[?&]" + e + "=([^&]*)").exec(window.location.search);
+			return n && decodeURIComponent(n[1].replace(/\+/g, " "))
+		},
+		n = "kids" === e("tag"),
+		t = new(function() {
+			function e() {
+				var e = this;
+				this.queue = [], this.init = function(n) {
+					return void 0 === n && (n = {}), new Promise((function(t, o) {
+						e.enqueue("init", n, t, o)
+					}))
+				}, this.rewardedBreak = function() {
+					return new Promise((function(e) {
+						e(!1)
+					}))
+				}, this.noArguments = function(n) {
+					return function() {
+						e.enqueue(n)
+					}
+				}, this.oneArgument = function(n) {
+					return function(t) {
+						e.enqueue(n, t)
+					}
+				}, this.handleAutoResolvePromise = function() {
+					return new Promise((function(e) {
+						e()
+					}))
+				}, this.throwNotLoaded = function() {
+					console.debug("PokiSDK is not loaded yet. Not all methods are available.")
+				}
+			}
+			return e.prototype.enqueue = function(e, t, o, i) {
+				var r = {
+					fn: e,
+					options: t,
+					resolveFn: o,
+					rejectFn: i
+				};
+				n ? i && i() : this.queue.push(r)
+			}, e.prototype.dequeue = function() {
+				for (var e = function() {
+						var e = n.queue.shift(),
+							t = e,
+							o = t.fn,
+							i = t.options;
+						"function" == typeof window.PokiSDK[o] ? (null == e ? void 0 : e.resolveFn) || (null == e ? void 0 : e.rejectFn) ? window.PokiSDK[o](i).then((function() {
+							for (var n = [], t = 0; t < arguments.length; t++) n[t] = arguments[t];
+							"function" == typeof e.resolveFn && e.resolveFn.apply(e, n)
+						})).catch((function() {
+							for (var n = [], t = 0; t < arguments.length; t++) n[t] = arguments[t];
+							"function" == typeof e.rejectFn && e.rejectFn.apply(e, n)
+						})) : void 0 !== (null == e ? void 0 : e.fn) && window.PokiSDK[o](i) : console.error("Cannot execute " + e.fn)
+					}, n = this; this.queue.length > 0;) e()
+			}, e
+		}());
+	window.PokiSDK = {
+		init: t.init,
+		initWithVideoHB: t.init,
+		customEvent: t.throwNotLoaded,
+		commercialBreak: t.handleAutoResolvePromise,
+		rewardedBreak: t.rewardedBreak,
+		displayAd: t.throwNotLoaded,
+		destroyAd: t.throwNotLoaded,
+		getLeaderboard: t.handleAutoResolvePromise,
+		getSharableURL: function() {
+			return new Promise((function(e, n) {
+				return n()
+			}))
+		},
+		getURLParam: function(n) {
+			return e("gd" + n) || e(n) || ""
+		}
+	}, ["disableProgrammatic", "gameLoadingStart", "gameLoadingFinished", "gameInteractive", "roundStart", "roundEnd", "muteAd"].forEach((function(e) {
+		window.PokiSDK[e] = t.noArguments(e)
+	})), ["setDebug", "gameplayStart", "gameplayStop", "gameLoadingProgress", "happyTime", "setPlayerAge", "togglePlayerAdvertisingConsent", "logError", "sendHighscore", "setDebugTouchOverlayController"].forEach((function(e) {
+		window.PokiSDK[e] = t.oneArgument(e)
+	}));
+	var o, i = ((o = window.pokiSDKVersion) || (o = e("ab") || "v2.263.0"), "patch/poki-sdk-" + (n ? "kids" : "core") + "-" + o + ".js"),
+		r = document.createElement("script");
+	r.setAttribute("src", i), r.setAttribute("type", "text/javascript"), r.setAttribute("crossOrigin", "anonymous"), r.onload = function() {
+		return t.dequeue()
+	}, document.head.appendChild(r)
+})();</script>
+<script>var __loadWithProgress = function __loadWithProgress(filesToLoad, progressListener, completionCallback) {
+	var progressManager = {},
+		interval;
+	var __loadedFiles = {};
+
+	var scriptsToLoad = Object.keys(filesToLoad).filter(function (url) {return url.indexOf('.js') > 0;});
+	
+	var sentProgress = false;
+	
+	var fileCount = Object.keys(filesToLoad).length;
+	
+	var __loadFile = function __loadFile(url) {
+		var request = new XMLHttpRequest();
+		request.open('GET', url);
+		request.responseType = 'blob';
+		
+		request.onload = function () {
+			if (request.status === 200) {
+				__loadedFiles[url] = request.response;
+				if(--fileCount == 0)
+					__prepareScripts();
+			} else {
+				console.error("Couldn't load " + url);
+			}
+		};
+		
+		request.onerror = function () {
+			console.error("Couldn't load " + url);
+		};
+		
+		request.onprogress = function (event) {
+			progressManager[url] = {
+				loaded: event.loaded,
+				total: filesToLoad[url].total
+			};
+		};
+		
+		request.send();
+	};
+	
+	var urls = Object.keys(filesToLoad);
+	interval = setInterval(function () {
+		var currentProgress = __getProgress() || 0;
+		progressListener(currentProgress);
+		sentProgress = true;
+		if (currentProgress === 1 && Object.keys(progressManager).length === urls.length) clearInterval(interval);
+	}, 50);
+	
+	var __getProgress = function __getProgress() {
+		var loaded = 0,
+			total = 0;
+		Object.keys(progressManager).forEach(function (url) {
+			loaded += progressManager[url].loaded;
+			total += progressManager[url].total;
+		});
+		return loaded / total;
+	};
+
+	var urlCreator = window.URL || window.webkitURL;
+
+	var __prepareScripts = function __prepareScripts() {
+		var scriptCount = scriptsToLoad.length;
+		scriptsToLoad.forEach(function(url) {
+			var script = document.createElement('script'),
+			src = urlCreator.createObjectURL(__loadedFiles[url]);
+			script.src = src;
+			script.onload = function(){
+				if(--scriptCount == 0)
+				{
+					if(!sentProgress)
+						progressListener(1.0);
+					completionCallback();
+				}
+			};
+			document.body.appendChild(script);
+		});
+	};
+
+	Object.keys(filesToLoad).forEach(function(url) {
+		__loadFile(url);
+	});
+}</script>
+<script>
+		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, { capture: false, passive: false });
+		if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+			var meta = document.getElementById ("viewport");
+			meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+		}
+	</script>
+<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		#openfl-content {
+			background: #000000;
+			width: 100%;
+			height: 100%;
+		}
+
+		#progress {
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 50%;
+		}
+	</style>
+</meta></head>
+<body style="overflow:hidden;">
+<noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser to view this
+		page.</noscript>
+<div id="openfl-content"><progress id="progress" max="1" value="0"></progress></div>
+<script>
+		var __filesToLoad = {
+			"./Jumping Shell.js": {total: 2482661}
+		}
+		
+		var __progressBar;
+		
+		var __progressListener = function __progressListener(progress) {
+			if(!__progressBar) __progressBar = document.getElementById("progress");
+			if(__progressBar) __progressBar.value = progress;
+		};
+
+		var __completionCallback = function __completionCallback() {
+			__progressBar.parentNode.removeChild(__progressBar);
+			lime.embed ("Jumping Shell", "openfl-content", 1252, 704, { parameters: {} });
+		};
+
+		__loadWithProgress(__filesToLoad, __progressListener, __completionCallback);
+		
+	</script>
+</body>
+</html>

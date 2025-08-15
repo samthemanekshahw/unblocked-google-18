@@ -1,0 +1,16 @@
+{
+"companyName": "vitality",
+"productName": "Just Park It 11",
+"productVersion": "1.1",
+"dataUrl": "JustParkIt11.data.unityweb",
+"wasmCodeUrl": "JustParkIt11.wasm.code.unityweb",
+"wasmFrameworkUrl": "JustParkIt11.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#141414",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.21f1"
+}

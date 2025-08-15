@@ -1,0 +1,32 @@
+{
+    "image": "player",
+    "frame": {
+        "width":200,
+        "height":200,
+        "count": 6
+    },
+    "animations": {
+        "run": {
+            "frames": [0, 1, 2],
+            "next": "run",
+            "frequency": 3
+        },
+        "jump": {
+            "frames": [3],
+            "next": "jump",
+            "frequency": 4
+        },
+        "tyakuti": {
+            "frames": [5,5],
+            "next": "run",
+            "frequency": 3
+        },
+        "tame": {
+            "frames": [4,4],
+            "next": "jump",
+            "frequency": 3
+        }
+
+
+    }
+}

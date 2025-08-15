@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="classroom6x.gitlab.io" name="website">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui, shrink-to-fit=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Lands Of Blight Unblocked - ClassRoom6x</title>
+<style type="text/css">
+        /* Disable user selection to avoid strange bug in Chrome on Windows:
+	* Selecting a text outside the canvas, then clicking+draging would
+	* drag the selected text but block mouse down/up events to the engine.
+	*/
+        body {
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .canvas-app-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .canvas-app-container:-webkit-full-screen {
+            /* Auto width and height in Safari/Chrome fullscreen. */
+            width: auto;
+            height: auto;
+        }
+
+        #canvas {
+            outline: none;
+            border: 0;
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        #canvas-container {
+            position: relative;
+        }
+
+        canvas:focus,
+        canvas:active {
+            outline: none;
+            border: 0;
+            ie-dummy: expression(this.hideFocus=true);
+            -moz-outline-style: none;
+        }
+
+        div {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .canvas-app-progress {
+            position: absolute;
+            background-color: #394046;
+            height: 6px;
+            margin-top: -6px;
+            width: 100%;
+        }
+
+        .canvas-app-progress-bar {
+            font-size: 12px;
+            height: 6px;
+            color: rgb(255, 255, 255);
+            background-color: #1a72eb;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .button {
+            background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='yes'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='16px' height='16px' viewBox='0 0 16 16' version='1.1' style='zoom: 32;'%3E%3Ctitle%3Eic-16-fullscreen%3C/title%3E%3Cg id='ic-16-fullscreen' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpath d='M3,11.5 C3,11.776 3.224,12 3.5,12 L12.5,12 C12.776,12 13,11.776 13,11.5 L13,4.5 C13,4.224 12.776,4 12.5,4 L3.5,4 C3.224,4 3,4.224 3,4.5 L3,11.5 Z M14,11 L14,13 L12,13 C11.724,13 11.5,13.224 11.5,13.5 C11.5,13.776 11.724,14 12,14 L14.5,14 C14.776,14 15,13.776 15,13.5 L15,11 C15,10.724 14.776,10.5 14.5,10.5 C14.224,10.5 14,10.724 14,11 Z M12,2 C11.724,2 11.5,2.224 11.5,2.5 C11.5,2.776 11.724,3 12,3 L14,3 L14,5 C14,5.276 14.224,5.5 14.5,5.5 C14.776,5.5 15,5.276 15,5 L15,2.5 C15,2.224 14.776,2 14.5,2 L12,2 Z M2,13 L2,11 C2,10.724 1.776,10.5 1.5,10.5 C1.224,10.5 1,10.724 1,11 L1,13.5 C1,13.776 1.224,14 1.5,14 L4,14 C4.276,14 4.5,13.776 4.5,13.5 C4.5,13.224 4.276,13 4,13 L2,13 Z M1,2.5 C1,2.224 1.224,2 1.5,2 L4,2 C4.276,2 4.5,2.224 4.5,2.5 C4.5,2.776 4.276,3 4,3 L2,3 L2,5 C2,5.276 1.776,5.5 1.5,5.5 C1.224,5.5 1,5.276 1,5 L1,2.5 Z ' id='fill_1' fill='%23fafcff'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            border-color: transparent;
+            float: left;
+            color: #fafcff;
+            padding-left: 50%;
+            padding: 0px 0px 0px 20px;
+            cursor: pointer;
+            background-position: left bottom;
+            margin-left: 2px;
+        }
+
+
+        .link,
+        .button {
+            font-family: sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0px;
+            padding-top: 12px;
+        }
+
+        .buttons-background {
+            background-color: #1e2226;
+            width: 100%;
+            height: 42px;
+        }
+
+        body {
+            background-color: #1e2226;
+        }
+
+        .canvas-app-container {
+            background: rgba(36, 41, 46, 1);
+            background: -moz-linear-gradient(-45deg, rgba(36, 41, 46, 1) 0%, rgba(36, 41, 46, 1) 49%, rgba(38, 43, 49, 1) 50%, rgba(38, 43, 49, 1) 100%);
+            background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(36, 41, 46, 1)), color-stop(49%, rgba(36, 41, 46, 1)), color-stop(50%, rgba(38, 43, 49, 1)), color-stop(100%, rgba(38, 43, 49, 1)));
+            background: -webkit-linear-gradient(-45deg, rgba(36, 41, 46, 1) 0%, rgba(36, 41, 46, 1) 49%, rgba(38, 43, 49, 1) 50%, rgba(38, 43, 49, 1) 100%);
+            background: -o-linear-gradient(-45deg, rgba(36, 41, 46, 1) 0%, rgba(36, 41, 46, 1) 49%, rgba(38, 43, 49, 1) 50%, rgba(38, 43, 49, 1) 100%);
+            background: -ms-linear-gradient(-45deg, rgba(36, 41, 46, 1) 0%, rgba(36, 41, 46, 1) 49%, rgba(38, 43, 49, 1) 50%, rgba(38, 43, 49, 1) 100%);
+            background: linear-gradient(135deg, rgba(36, 41, 46, 1) 0%, rgba(36, 41, 46, 1) 49%, rgba(38, 43, 49, 1) 50%, rgba(38, 43, 49, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#24292e', endColorstr='#262b31', GradientType=1);
+        }
+
+
+
+        .canvas-app-canvas {
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            /* Center and scale the image nicely */
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            z-index: 1
+        }
+
+        .canvas-app-bg {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+
+            z-index: 3;
+            position: absolute;
+        }
+
+        .no-webp .canvas-app-canvas {
+            background-image: url("loading.png");
+        }
+
+        .webp .canvas-app-canvas {
+            background-image: url("loading.webp");
+        }
+
+        .no-webp .canvas-app-bg {
+            background-image: url("loading.png");
+        }
+
+        .webp .canvas-app-bg {
+            background-image: url("loading.webp");
+        }
+
+
+        @font-face {
+            font-family: loadingFont;
+            src: url(loading_font.ttf);
+        }
+    </style>
+<script>(() => {
+	var e = function(e) {
+			var n = RegExp("[?&]" + e + "=([^&]*)").exec(window.location.search);
+			return n && decodeURIComponent(n[1].replace(/\+/g, " "))
+		},
+		n = "kids" === e("tag"),
+		t = new(function() {
+			function e() {
+				var e = this;
+				this.queue = [], this.init = function(n) {
+					return void 0 === n && (n = {}), new Promise((function(t, o) {
+						e.enqueue("init", n, t, o)
+					}))
+				}, this.rewardedBreak = function() {
+					return new Promise((function(e) {
+						e(!1)
+					}))
+				}, this.noArguments = function(n) {
+					return function() {
+						e.enqueue(n)
+					}
+				}, this.oneArgument = function(n) {
+					return function(t) {
+						e.enqueue(n, t)
+					}
+				}, this.handleAutoResolvePromise = function() {
+					return new Promise((function(e) {
+						e()
+					}))
+				}, this.throwNotLoaded = function() {
+					console.debug("PokiSDK is not loaded yet. Not all methods are available.")
+				}
+			}
+			return e.prototype.enqueue = function(e, t, o, i) {
+				var r = {
+					fn: e,
+					options: t,
+					resolveFn: o,
+					rejectFn: i
+				};
+				n ? i && i() : this.queue.push(r)
+			}, e.prototype.dequeue = function() {
+				for (var e = function() {
+						var e = n.queue.shift(),
+							t = e,
+							o = t.fn,
+							i = t.options;
+						"function" == typeof window.PokiSDK[o] ? (null == e ? void 0 : e.resolveFn) || (null == e ? void 0 : e.rejectFn) ? window.PokiSDK[o](i).then((function() {
+							for (var n = [], t = 0; t < arguments.length; t++) n[t] = arguments[t];
+							"function" == typeof e.resolveFn && e.resolveFn.apply(e, n)
+						})).catch((function() {
+							for (var n = [], t = 0; t < arguments.length; t++) n[t] = arguments[t];
+							"function" == typeof e.rejectFn && e.rejectFn.apply(e, n)
+						})) : void 0 !== (null == e ? void 0 : e.fn) && window.PokiSDK[o](i) : console.error("Cannot execute " + e.fn)
+					}, n = this; this.queue.length > 0;) e()
+			}, e
+		}());
+	window.PokiSDK = {
+		init: t.init,
+		initWithVideoHB: t.init,
+		customEvent: t.throwNotLoaded,
+		commercialBreak: t.handleAutoResolvePromise,
+		rewardedBreak: t.rewardedBreak,
+		displayAd: t.throwNotLoaded,
+		destroyAd: t.throwNotLoaded,
+		getLeaderboard: t.handleAutoResolvePromise,
+		getSharableURL: function() {
+			return new Promise((function(e, n) {
+				return n()
+			}))
+		},
+		getURLParam: function(n) {
+			return e("gd" + n) || e(n) || ""
+		}
+	}, ["disableProgrammatic", "gameLoadingStart", "gameLoadingFinished", "gameInteractive", "roundStart", "roundEnd", "muteAd"].forEach((function(e) {
+		window.PokiSDK[e] = t.noArguments(e)
+	})), ["setDebug", "gameplayStart", "gameplayStop", "gameLoadingProgress", "happyTime", "setPlayerAge", "togglePlayerAdvertisingConsent", "logError", "sendHighscore", "setDebugTouchOverlayController"].forEach((function(e) {
+		window.PokiSDK[e] = t.oneArgument(e)
+	}));
+	var o, i = ((o = window.pokiSDKVersion) || (o = e("ab") || "v2.263.0"), "patch/poki-sdk-" + (n ? "kids" : "core") + "-" + o + ".js"),
+		r = document.createElement("script");
+	r.setAttribute("src", i), r.setAttribute("type", "text/javascript"), r.setAttribute("crossOrigin", "anonymous"), r.onload = function() {
+		return t.dequeue()
+	}, document.head.appendChild(r)
+})();</script>
+</meta></head>
+<body style="overflow:hidden;">
+<div class="canvas-app-container" id="app-container">
+<div class="canvas-app-canvas-container" id="canvas-container">
+<canvas class="canvas-app-bg" height="540" id="canvas-bg" tabindex="0" width="960"></canvas>
+<canvas class="canvas-app-canvas" height="540" id="canvas" tabindex="1" width="960"></canvas>
+</div>
+<div class="buttons-background">
+<div class="button" onclick="Module.toggleFullscreen();">
+                Fullscreen
+            </div>
+</div>
+<!-- center and anchor to bottom of page -->
+<div id="progress-bar-root" style="position: absolute; bottom: 16%; left: 50%; visibility: hidden; z-index: 4;">
+<div id="progress-bar-text" style="text-align: center; vertical-align:bottom;  margin-left: -100%;color:white; font-size:12px;
+font-family: loadingFont;  text-shadow:-3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000;"></div>
+<img id="progress-bar-bg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARIAAAAYBAMAAADE9W/CAAAAD1BMVEUAAABsa5QAAAD///9UU3cdBPk+AAAAAXRSTlMAQObYZgAAAEZJREFUSMft1jERwDAAw0BRKAVTMIXyx5QtGHQ5C8GPAmoITJLGUE2S5jeUqiSfoUkmmWSSSW5vS6K5Ao+E1FBUEmIIkeQA0CiQXF5Uo58AAAAASUVORK5CYII="/>
+<img id="progress-bar-fg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARIAAAAYBAMAAADE9W/CAAAAFVBMVEUAAAD/0AD/6Yv/53v23Jbtsxn/9MLsmP//AAAAAXRSTlMAQObYZgAAAE1JREFUSMft0iEVACAAA1EqUIEKVKACFegfAVgCHmYn9tXkiZWIN1Wa2DaspF9Lum0DS8whuBL/XQ9ciT+EVjKHTHFtWAkhZMBKIuLDBksQjOi7D2WNAAAAAElFTkSuQmCC" style="position:absolute; clip: rect(0px,0px,0px,0px);"/>
+</div>
+</div>
+<!-- -->
+<script>// file downloader
+// wraps XMLHttpRequest and adds retry support and progress updates when the
+// content is gzipped (gzipped content doesn't report a computable content length
+// on Google Chrome)
+var FileLoader = {
+    options: {
+        retryCount: 4,
+        retryInterval: 1000,
+    },
+    // do xhr request with retries
+    request: function(url, method, responseType, currentAttempt) {
+        if (typeof method === 'undefined') throw "No method specified";
+        if (typeof method === 'responseType') throw "No responseType specified";
+        if (typeof currentAttempt === 'undefined') currentAttempt = 0;
+        var obj = {
+            send: function() {
+                var onprogress = this.onprogress;
+                var onload = this.onload;
+                var onerror = this.onerror;
+
+                var xhr = new XMLHttpRequest();
+                xhr.open(method, url, true);
+                xhr.responseType = responseType;
+                xhr.onprogress = function(e) {
+                    if (onprogress) onprogress(xhr, e);
+                };
+                xhr.onerror = function(e) {
+                    if (currentAttempt == FileLoader.options.retryCount) {
+                        if (onerror) onerror(xhr, e);
+                        return;
+                    }
+                    currentAttempt = currentAttempt + 1;
+                    setTimeout(obj.send.bind(obj), FileLoader.options.retryInterval);
+                };
+                xhr.onload = function(e) {
+                    if (onload) onload(xhr, e);
+                };
+                xhr.send(null);
+            }
+        };
+        return obj;
+    },
+    // Do HTTP HEAD request to get size of resource
+    // callback will receive size or undefined in case of an error
+    size: function(url, callback) {
+        var request = FileLoader.request(url, "HEAD", "text");
+        request.onerror = function(xhr, e) {
+            callback(undefined);
+        };
+        request.onload = function(xhr, e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var total = xhr.getResponseHeader('content-length');
+                    callback(total);
+                } else {
+                    callback(undefined);
+                }
+            }
+        };
+        request.send();
+    },
+    // Do HTTP GET request
+    // onprogress(loaded, total)
+    // onerror(error)
+    // onload(response)
+    load: function(url, responseType, estimatedSize, onprogress, onerror, onload) {
+        var request = FileLoader.request(url, "GET", responseType);
+        request.onprogress = function(xhr, e) {
+            if (e.lengthComputable) {
+                onprogress(e.loaded, e.total);
+                return;
+            }
+            var contentLength = xhr.getResponseHeader('content-length');
+            var size = contentLength != undefined ? contentLength : estimatedSize;
+            if (size) {
+                onprogress(e.loaded, size);
+            } else {
+                onprogress(e.loaded, e.loaded);
+            }
+        };
+        request.onerror = function(xhr, e) {
+            onerror("Error loading '" + url + "' (" + e + ")");
+        };
+        request.onload = function(xhr, e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var res = xhr.response;
+                    if (responseType == "json" && typeof res === "string") {
+                        onload(JSON.parse(res));
+                    } else {
+                        onload(res);
+                    }
+                } else {
+                    onerror("Error loading '" + url + "' (" + e + ")");
+                }
+            }
+        };
+        request.send();
+    }
+};
+
+
+var EngineLoader = {
+    wasm_size: 2000000,
+    wasmjs_size: 250000,
+    asmjs_size: 4000000,
+
+    stream_wasm: false,
+
+    loadAndInstantiateWasmAsync: function(src, fromProgress, toProgress, callback) {
+        FileLoader.load(src, "arraybuffer", EngineLoader.wasm_size,
+            function(loaded, total) { Progress.calculateProgress(fromProgress, toProgress, loaded, total); },
+            function(error) { throw error; },
+            function(wasm) {
+                Module.instantiateWasm = function(imports, successCallback) {
+                    var wasmInstantiate = WebAssembly.instantiate(new Uint8Array(wasm), imports).then(function(output) {
+                        successCallback(output.instance);
+                    }).catch(function(e) {
+                        console.log('wasm instantiation failed! ' + e);
+                        throw e;
+                    });
+                    return {}; // Compiling asynchronously, no exports.
+                }
+                callback();
+            });
+    },
+
+    setupWasmStreamAsync: async function(src, fromProgress, toProgress) {
+        // https://stackoverflow.com/a/69179454
+        var fetchFn = fetch;
+        if (typeof TransformStream === "function" && ReadableStream.prototype.pipeThrough) {
+            async function fetchWithProgress(path) {
+                const response = await fetch(path);
+                // May be incorrect if compressed
+                const contentLength = response.headers.get("Content-Length");
+                const total = parseInt(contentLength, 10);
+
+                let bytesLoaded = 0;
+                const ts = new TransformStream({
+                    transform (chunk, controller) {
+                        bytesLoaded += chunk.byteLength;
+                        Progress.calculateProgress(fromProgress, toProgress, bytesLoaded, total);
+                        controller.enqueue(chunk)
+                    }
+                });
+
+                return new Response(response.body.pipeThrough(ts), response);
+            }
+            fetchFn = fetchWithProgress;
+        }
+
+        Module.instantiateWasm = function(imports, successCallback) {
+            WebAssembly.instantiateStreaming(fetchFn(src), imports).then(function(output) {
+                Progress.calculateProgress(fromProgress, toProgress, 1, 1);
+                successCallback(output.instance);
+            }).catch(function(e) {
+                console.log('wasm streaming instantiation failed! ' + e);
+                throw e;
+            });
+            return {}; // Compiling asynchronously, no exports.
+        }
+    },
+
+    // instantiate the .wasm file either by streaming it or first loading and then instantiate it
+    // https://github.com/emscripten-core/emscripten/blob/master/tests/manual_wasm_instantiate.html#L170
+    loadWasmAsync: function(exeName) {
+        if (EngineLoader.stream_wasm && (typeof WebAssembly.instantiateStreaming === "function")) {
+            EngineLoader.setupWasmStreamAsync(exeName + ".wasm", 10, 50);
+            EngineLoader.loadAndRunScriptAsync(exeName + '_wasm.js', EngineLoader.wasmjs_size, 0, 10);
+        }
+        else {
+            EngineLoader.loadAndInstantiateWasmAsync(exeName + ".wasm", 0, 40, function() {
+                EngineLoader.loadAndRunScriptAsync(exeName + '_wasm.js', EngineLoader.wasmjs_size, 40, 50);
+            });
+        }
+    },
+
+    loadAsmJsAsync: function(exeName) {
+        EngineLoader.loadAndRunScriptAsync(exeName + '_asmjs.js', EngineLoader.asmjs_size, 0, 50);
+    },
+
+    // load and start engine script (asm.js or wasm.js)
+    loadAndRunScriptAsync: function(src, estimatedSize, fromProgress, toProgress) {
+        FileLoader.load(src, "text", estimatedSize,
+            function(loaded, total) { Progress.calculateProgress(fromProgress, toProgress, loaded, total); },
+            function(error) { throw error; },
+            function(response) {
+                var tag = document.createElement("script");
+                tag.text = response;
+                document.head.appendChild(tag);
+            });
+    },
+
+    // load engine (asm.js or wasm.js + wasm)
+    load: function(appCanvasId, exeName) {
+        Progress.addProgress(Module.setupCanvas(appCanvasId));
+        if (Module['isWASMSupported']) {
+            EngineLoader.loadWasmAsync(exeName);
+        } else {
+            EngineLoader.loadAsmJsAsync(exeName);
+        }
+    }
+}
+
+
+/* ********************************************************************* */
+/* Load and combine game archive data that is split into archives        */
+/* ********************************************************************* */
+
+var GameArchiveLoader = {
+    // which files to load
+    _files: [],
+    _fileIndex: 0,
+    // file
+    //  name: intended filepath of built object
+    //  size: expected size of built object.
+    //  data: combined pieces
+    //  downloaded: total bytes downloaded
+    //  pieces: array of name, offset and data objects
+    //  numExpectedFiles: total number of files expected in description
+    //  lastRequestedPiece: index of last data file requested (strictly ascending)
+    //  totalLoadedPieces: counts the number pieces received
+
+    //MAX_CONCURRENT_XHR: 6,    // remove comment if throttling of XHR is desired.
+
+    isCompleted: false,       // status of process
+
+    _onFileLoadedListeners: [],          // signature: name, data.
+    _onArchiveLoadedListeners:[],        // signature: void
+    _onFileDownloadErrorListeners: [],   // signature: name
+
+    _currentDownloadBytes: 0,
+    _totalDownloadBytes: 0,
+
+    _archiveLocationFilter: function(path) { return "split" + path; },
+
+    cleanUp: function() {
+        this._files =  [];
+        this._fileIndex = 0;
+        this.isCompleted = false;
+        this._onGameArchiveLoaderCompletedListeners = [];
+        this._onAllTargetsBuiltListeners = [];
+        this._onFileDownloadErrorListeners = [];
+
+        this._currentDownloadBytes = 0;
+        this._totalDownloadBytes = 0;
+    },
+
+    addListener: function(list, callback) {
+        if (typeof callback !== 'function') throw "Invalid callback registration";
+        list.push(callback);
+    },
+    notifyListeners: function(list, data) {
+        for (i=0; i<list.length; ++i) {
+            list[i](data);
+        }
+    },
+
+    addFileDownloadErrorListener: function(callback) {
+        this.addListener(this._onFileDownloadErrorListeners, callback);
+    },
+    notifyFileDownloadError: function(url) {
+        this.notifyListeners(this._onFileDownloadErrorListeners, url);
+    },
+
+    addFileLoadedListener: function(callback) {
+        this.addListener(this._onFileLoadedListeners, callback);
+    },
+    notifyFileLoaded: function(file) {
+        this.notifyListeners(this._onFileLoadedListeners, { name: file.name, data: file.data });
+    },
+
+    addArchiveLoadedListener: function(callback) {
+        this.addListener(this._onArchiveLoadedListeners, callback);
+    },
+    notifyArchiveLoaded: function() {
+        this.notifyListeners(this._onArchiveLoadedListeners);
+    },
+
+    setFileLocationFilter: function(filter) {
+        if (typeof filter !== 'function') throw "Invalid filter";
+        this._archiveLocationFilter = filter;
+    },
+
+    // load the archive_files.json with the list of files and their individual
+    // pieces
+    // descriptionUrl: location of text file describing files to be preloaded
+    loadArchiveDescription: function(descriptionUrl) {
+        FileLoader.load(
+            this._archiveLocationFilter(descriptionUrl),
+            "json",
+            undefined,
+            function (loaded, total) { },
+            function (error) { GameArchiveLoader.notifyFileDownloadError(descriptionUrl); },
+            function (json) { GameArchiveLoader.onReceiveDescription(json); });
+    },
+
+    onReceiveDescription: function(json) {
+        this._files = json.content;
+        this._totalDownloadBytes = 0;
+        this._currentDownloadBytes = 0;
+
+        // calculate total download size of all files
+        for(var i=0; i<this._files.length; ++i) {
+            this._totalDownloadBytes += this._files[i].size;
+        }
+        this.downloadContent();
+    },
+
+    downloadContent: function() {
+        var file = this._files[this._fileIndex];
+        // if the file consists of more than one piece we prepare an array to store the pieces in
+        if (file.pieces.length > 1) {
+            file.data = new Uint8Array(file.size);
+        }
+        // how many pieces to download at a time
+        var limit = file.pieces.length;
+        if (typeof this.MAX_CONCURRENT_XHR !== 'undefined') {
+            limit = Math.min(limit, this.MAX_CONCURRENT_XHR);
+        }
+        // download pieces
+        for (var i=0; i<limit; ++i) {
+            this.downloadPiece(file, i);
+        }
+    },
+
+    notifyDownloadProgress: function() {
+        Progress.calculateProgress(50, 100, this._currentDownloadBytes, this._totalDownloadBytes);
+    },
+
+    downloadPiece: function(file, index) {
+        if (index < file.lastRequestedPiece) {
+            throw "Request out of order";
+        }
+
+        var piece = file.pieces[index];
+        file.lastRequestedPiece = index;
+        file.totalLoadedPieces = 0;
+
+        var total = 0;
+        var downloaded = 0;
+        var url = this._archiveLocationFilter('/' + piece.name);
+
+        FileLoader.load(
+            url, "arraybuffer", undefined,
+            function (loaded, total) {
+                var delta = loaded - downloaded;
+                downloaded = loaded;
+                GameArchiveLoader._currentDownloadBytes += delta;
+                GameArchiveLoader.notifyDownloadProgress();
+            },
+            function (error) {
+                GameArchiveLoader.notifyFileDownloadError(error);
+            },
+            function (response) {
+                piece.data = new Uint8Array(response);
+                piece.dataLength = piece.data.length;
+                total = piece.dataLength;
+                downloaded = piece.dataLength;
+                GameArchiveLoader.onPieceLoaded(file, piece);
+                GameArchiveLoader.notifyDownloadProgress();
+                piece.data = undefined;
+            });
+    },
+
+    addPieceToFile: function(file, piece) {
+        if (1 == file.pieces.length) {
+            file.data = piece.data;
+        } else {
+            var start = piece.offset;
+            var end = start + piece.data.length;
+            if (0 > start) {
+                throw "Buffer underflow";
+            }
+            if (end > file.data.length) {
+                throw "Buffer overflow";
+            }
+            file.data.set(piece.data, piece.offset);
+        }
+    },
+
+    onPieceLoaded: function(file, piece) {
+        this.addPieceToFile(file, piece);
+
+        ++file.totalLoadedPieces;
+        // is all pieces of the file loaded?
+        if (file.totalLoadedPieces == file.pieces.length) {
+            this.onFileLoaded(file);
+        }
+        // continue loading more pieces of the file
+        // if not all pieces are already in progress
+        else {
+            var next = file.lastRequestedPiece + 1;
+            if (next < file.pieces.length) {
+                this.downloadPiece(file, next);
+            }
+        }
+    },
+
+    verifyFile: function(file) {
+        // verify that we downloaded as much as we were supposed to
+        var actualSize = 0;
+        for (var i=0;i<file.pieces.length; ++i) {
+            actualSize += file.pieces[i].dataLength;
+        }
+        if (actualSize != file.size) {
+            throw "Unexpected data size";
+        }
+
+        // verify the pieces
+        if (file.pieces.length > 1) {
+            var output = file.data;
+            var pieces = file.pieces;
+            for (i=0; i<pieces.length; ++i) {
+                var item = pieces[i];
+                // Bounds check
+                var start = item.offset;
+                var end = start + item.dataLength;
+                if (0 < i) {
+                    var previous = pieces[i - 1];
+                    if (previous.offset + previous.dataLength > start) {
+                        throw "Segment underflow";
+                    }
+                }
+                if (pieces.length - 2 > i) {
+                    var next = pieces[i + 1];
+                    if (end > next.offset) {
+                        throw "Segment overflow";
+                    }
+                }
+            }
+        }
+    },
+
+    onFileLoaded: function(file) {
+        this.verifyFile(file);
+        this.notifyFileLoaded(file);
+        ++this._fileIndex;
+        if (this._fileIndex == this._files.length) {
+            this.onArchiveLoaded();
+        } else {
+            this.downloadContent();
+        }
+    },
+
+    onArchiveLoaded: function() {
+        this.isCompleted = true;
+        this.notifyArchiveLoaded();
+    }
+};
+
+/* ********************************************************************* */
+/* Default splash and progress visualisation                             */
+/* ********************************************************************* */
+
+var Progress = {
+    progress_id: "defold-progress",
+    bar_id: "defold-progress-bar",
+
+    listeners: [],
+
+    addListener: function(callback) {
+        if (typeof callback !== 'function') throw "Invalid callback registration";
+        this.listeners.push(callback);
+    },
+
+    notifyListeners: function(percentage) {
+        for (i=0; i<this.listeners.length; ++i) {
+            this.listeners[i](percentage);
+        }
+    },
+
+    addProgress : function (canvas) {
+        /* Insert default progress bar below canvas */
+        canvas.insertAdjacentHTML('afterend', '<div id="' + Progress.progress_id + '" class="canvas-app-progress"><div id="' + Progress.bar_id + '" class="canvas-app-progress-bar" style="width: 0%;"></div></div>');
+        Progress.bar = document.getElementById(Progress.bar_id);
+        Progress.progress = document.getElementById(Progress.progress_id);
+    },
+
+    updateProgress: function(percentage) {
+        if (Progress.bar) {
+            Progress.bar.style.width = percentage + "%";
+        }
+        Progress.notifyListeners(percentage);
+    },
+
+    calculateProgress: function (from, to, current, total) {
+        this.updateProgress(from + (current / total) * (to - from));
+    },
+
+    removeProgress: function () {
+        if (Progress.progress.parentElement !== null) {
+            Progress.progress.parentElement.removeChild(Progress.progress);
+
+            // Remove any background/splash image that was set in runApp().
+            // Workaround for Safari bug DEF-3061.
+            Module.canvas.style.background = "";
+        }
+    }
+};
+
+/* ********************************************************************* */
+/* Module is Emscripten namespace                                        */
+/* ********************************************************************* */
+
+var Module = {
+    noInitialRun: true,
+
+    _filesToPreload: [],
+    _archiveLoaded: false,
+    _preLoadDone: false,
+    _waitingForArchive: false,
+
+    // Persistent storage
+    persistentStorage: true,
+    _syncInProgress: false,
+    _syncNeeded: false,
+    _syncInitial: false,
+    _syncMaxTries: 3,
+    _syncTries: 0,
+
+    arguments: [],
+
+    print: function(text) { console.log(text); },
+    printErr: function(text) { console.error(text); },
+
+    setStatus: function(text) { console.log(text); },
+
+    isWASMSupported: (function() {
+        try {
+            if (typeof WebAssembly === "object" && typeof WebAssembly.instantiate === "function") {
+                const module = new WebAssembly.Module(Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00));
+                if (module instanceof WebAssembly.Module)
+                    return new WebAssembly.Instance(module) instanceof WebAssembly.Instance;
+            }
+        } catch (e) {
+        }
+        return false;
+    })(),
+
+    prepareErrorObject: function (err, url, line, column, errObj) {
+        line = typeof line == "undefined" ? 0 : line;
+        column = typeof column == "undefined" ? 0 : column;
+        url = typeof url == "undefined" ? "" : url;
+        var errorLine = url + ":" + line + ":" + column;
+
+        var error = errObj || (typeof window.event != "undefined" ? window.event.error : "" ) || err || "Undefined Error";
+        var message = "";
+        var stack = "";
+        var backtrace = "";
+
+        if (typeof error == "object" && typeof error.stack != "undefined" && typeof error.message != "undefined") {
+            stack = String(error.stack);
+            message = String(error.message);
+        } else {
+            stack = String(error).split("\n");
+            message = stack.shift();
+            stack = stack.join("\n");
+        }
+        stack = stack || errorLine;
+
+        var callLine = /at (\S+:\d*$)/.exec(message);
+        if (callLine) {
+            message = message.replace(/(at \S+:\d*$)/, "");
+            stack = callLine[1] + "\n" + stack;
+        }
+
+        message = message.replace(/(abort\(.+\)) at .+/, "$1");
+        stack = stack.replace(/\?{1}\S+(:\d+:\d+)/g, "$1");
+        stack = stack.replace(/ *at (\S+)$/gm, "@$1");
+        stack = stack.replace(/ *at (\S+)(?: \[as \S+\])? +\((.+)\)/g, "$1@$2");
+        stack = stack.replace(/^((?:Object|Array)\.)/gm, "");
+        stack = stack.split("\n");
+
+        return { stack:stack, message:message };
+    },
+
+    hasWebGLSupport: function() {
+        var webgl_support = false;
+        try {
+            var canvas = document.createElement("canvas");
+            var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+            if (gl && gl instanceof WebGLRenderingContext) {
+                webgl_support = true;
+            }
+        } catch (error) {
+            console.log("An error occurred while detecting WebGL support: " + error);
+            webgl_support = false;
+        }
+
+        return webgl_support;
+    },
+
+    setupCanvas: function(appCanvasId) {
+        appCanvasId = (typeof appCanvasId === 'undefined') ? 'canvas' : appCanvasId;
+        Module.canvas = document.getElementById(appCanvasId);
+        return Module.canvas;
+    },
+
+
+    /**
+    * Module.runApp - Starts the application given a canvas element id
+    *
+    * 'extra_params' is an optional object that can have the following fields:
+    *
+    *     'archive_location_filter':
+    *         Filter function that will run for each archive path.
+    *
+    *     'unsupported_webgl_callback':
+    *         Function that is called if WebGL is not supported.
+    *
+    *     'engine_arguments':
+    *         List of arguments (strings) that will be passed to the engine.
+    *
+    *     'persistent_storage':
+    *         Boolean toggling the usage of persistent storage.
+    *
+    *     'custom_heap_size':
+    *         Number of bytes specifying the memory heap size.
+    *
+    *     'disable_context_menu':
+    *         Disables the right-click context menu on the canvas element if true.
+    *
+    *     'retry_time':
+    *         Pause before retry file loading after error.
+    *
+    *     'retry_count':
+    *         How many attempts we do when trying to download a file.
+    *
+    *     'can_not_download_file_callback':
+    *         Function that is called if you can't download file after 'retry_count' attempts.
+    **/
+    runApp: function(appCanvasId, extra_params) {
+        Module.setupCanvas(appCanvasId);
+
+        var params = {
+            archive_location_filter: function(path) { return 'split' + path; },
+            unsupported_webgl_callback: undefined,
+            engine_arguments: [],
+            persistent_storage: true,
+            custom_heap_size: undefined,
+            disable_context_menu: true,
+            retry_time: 1,
+            retry_count: 10,
+            can_not_download_file_callback: undefined,
+        };
+
+        for (var k in extra_params) {
+            if (extra_params.hasOwnProperty(k)) {
+                params[k] = extra_params[k];
+            }
+        }
+
+        Module.arguments = params["engine_arguments"];
+        Module.persistentStorage = params["persistent_storage"];
+
+        var fullScreenContainer = params["full_screen_container"];
+        if (typeof fullScreenContainer === "string") {
+            fullScreenContainer = document.querySelector(fullScreenContainer);
+        }
+        Module.fullScreenContainer = fullScreenContainer || Module.canvas;
+
+        if (Module.hasWebGLSupport()) {
+            Module.canvas.focus();
+
+            // Add context menu hide-handler if requested
+            if (params["disable_context_menu"])
+            {
+                Module.canvas.oncontextmenu = function(e) {
+                    e.preventDefault();
+                };
+            }
+
+            FileLoader.options.retryCount = params["retry_count"];
+            FileLoader.options.retryInterval = params["retry_time"] * 1000;
+            if (typeof params["can_not_download_file_callback"] === "function") {
+                GameArchiveLoader.addFileDownloadErrorListener(params["can_not_download_file_callback"]);
+            }
+            // Load and assemble archive
+            GameArchiveLoader.addFileLoadedListener(Module.onArchiveFileLoaded);
+            GameArchiveLoader.addArchiveLoadedListener(Module.onArchiveLoaded);
+            GameArchiveLoader.setFileLocationFilter(params["archive_location_filter"]);
+            GameArchiveLoader.loadArchiveDescription('/archive_files.json');
+        } else {
+            Progress.updateProgress(100, "Unable to start game, WebGL not supported");
+            Module.setStatus = function(text) {
+                if (text) Module.printErr('[missing WebGL] ' + text);
+            };
+
+            if (typeof params["unsupported_webgl_callback"] === "function") {
+                params["unsupported_webgl_callback"]();
+            }
+        }
+    },
+
+    onArchiveFileLoaded: function(file) {
+        Module._filesToPreload.push({path: file.name, data: file.data});
+    },
+
+    onArchiveLoaded: function() {
+        GameArchiveLoader.cleanUp();
+        Module._archiveLoaded = true;
+        Progress.updateProgress(100, "Starting...");
+
+        if (Module._waitingForArchive) {
+            Module._preloadAndCallMain();
+        }
+    },
+
+    toggleFullscreen: function(element) {
+        if (GLFW.isFullscreen) {
+            GLFW.cancelFullScreen();
+        } else {
+            GLFW.requestFullScreen(element);
+        }
+    },
+
+    preSync: function(done) {
+        // Initial persistent sync before main is called
+        FS.syncfs(true, function(err) {
+            if(err) {
+                Module._syncTries += 1;
+                console.error("FS syncfs error: " + err);
+                if (Module._syncMaxTries > Module._syncTries) {
+                    Module.preSync(done);
+                } else {
+                    Module._syncInitial = true;
+                    done();
+                }
+            } else {
+                Module._syncInitial = true;
+                if (done !== undefined) {
+                    done();
+                }
+            }
+        });
+    },
+
+    preloadAll: function() {
+        if (Module._preLoadDone) {
+            return;
+        }
+        Module._preLoadDone = true;
+        for (var i = 0; i < Module._filesToPreload.length; ++i) {
+            var item = Module._filesToPreload[i];
+            FS.createPreloadedFile("", item.path, item.data, true, true);
+        }
+    },
+
+    // Tries to do a MEM->IDB sync
+    // It will flag that another one is needed if there is already one sync running.
+    persistentSync: function() {
+
+        // Need to wait for the initial sync to finish since it
+        // will call close on all its file streams which will trigger
+        // new persistentSync for each.
+        if (Module._syncInitial) {
+            if (Module._syncInProgress) {
+                Module._syncNeeded = true;
+            } else {
+                Module._startSyncFS();
+            }
+        }
+    },
+
+    preInit: [function() {
+        /* Mount filesystem on preinit */
+        var dir = DMSYS.GetUserPersistentDataRoot();
+        FS.mkdir(dir);
+
+        // If IndexedDB is supported we mount the persistent data root as IDBFS,
+        // then try to do a IDB->MEM sync before we start the engine to get
+        // previously saved data before boot.
+        window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+        if (Module.persistentStorage && window.indexedDB) {
+            FS.mount(IDBFS, {}, dir);
+
+            // Patch FS.close so it will try to sync MEM->IDB
+            var _close = FS.close; FS.close = function(stream) { var r = _close(stream); Module.persistentSync(); return r; }
+
+            // Sync IDB->MEM before calling main()
+            Module.preSync(function() {
+                Module._preloadAndCallMain();
+            });
+        } else {
+            Module._preloadAndCallMain();
+        }
+    }],
+
+    preRun: [function() {
+        /* If archive is loaded, preload all its files */
+        if(Module._archiveLoaded) {
+            Module.preloadAll();
+        }
+    }],
+
+    postRun: [function() {
+        if(Module._archiveLoaded) {
+            Progress.removeProgress();
+        }
+    }],
+
+    _preloadAndCallMain: function() {
+        // If the archive isn't loaded,
+        // we will have to wait with calling main.
+        if (!Module._archiveLoaded) {
+            Module._waitingForArchive = true;
+        } else {
+            Module.preloadAll();
+            Progress.removeProgress();
+            if (Module.callMain === undefined) {
+                Module.noInitialRun = false;
+            } else {
+                Module.callMain(Module.arguments);
+            }
+        }
+    },
+
+    // Wrap IDBFS syncfs call with logic to avoid multiple syncs
+    // running at the same time.
+    _startSyncFS: function() {
+        Module._syncInProgress = true;
+
+        if (Module._syncMaxTries > Module._syncTries) {
+            FS.syncfs(false, function(err) {
+                Module._syncInProgress = false;
+
+                if (err) {
+                    console.error("Module._startSyncFS error: " + err);
+                    Module._syncTries += 1;
+                }
+
+                if (Module._syncNeeded) {
+                    Module._syncNeeded = false;
+                    Module._startSyncFS();
+                }
+
+            });
+        }
+    },
+};
+
+window.onerror = function(err, url, line, column, errObj) {
+    if (typeof Module.ccall !== 'undefined') {
+        var errorObject = Module.prepareErrorObject(err, url, line, column, errObj);
+        Module.ccall('JSWriteDump', 'null', ['string'], [JSON.stringify(errorObject.stack)]);
+    }
+    Module.setStatus('Exception thrown, see JavaScript console');
+    Module.setStatus = function(text) {
+        if (text) Module.printErr('[post-exception status] ' + text);
+    };
+};
+</script>
+<script>/*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-webp-setclasses !*/
+!function(e,n,A){function o(e,n){return typeof e===n}function t(){var e,n,A,t,a,i,l;for(var f in r)if(r.hasOwnProperty(f)){if(e=[],n=r[f],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(A=0;A<n.options.aliases.length;A++)e.push(n.options.aliases[A].toLowerCase());for(t=o(n.fn,"function")?n.fn():n.fn,a=0;a<e.length;a++)i=e[a],l=i.split("."),1===l.length?Modernizr[l[0]]=t:(!Modernizr[l[0]]||Modernizr[l[0]]instanceof Boolean||(Modernizr[l[0]]=new Boolean(Modernizr[l[0]])),Modernizr[l[0]][l[1]]=t),s.push((t?"":"no-")+l.join("-"))}}function a(e){var n=u.className,A=Modernizr._config.classPrefix||"";if(c&&(n=n.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+A+"no-js(\\s|$)");n=n.replace(o,"$1"+A+"js$2")}Modernizr._config.enableClasses&&(n+=" "+A+e.join(" "+A),c?u.className.baseVal=n:u.className=n)}function i(e,n){if("object"==typeof e)for(var A in e)f(e,A)&&i(A,e[A]);else{e=e.toLowerCase();var o=e.split("."),t=Modernizr[o[0]];if(2==o.length&&(t=t[o[1]]),"undefined"!=typeof t)return Modernizr;n="function"==typeof n?n():n,1==o.length?Modernizr[o[0]]=n:(!Modernizr[o[0]]||Modernizr[o[0]]instanceof Boolean||(Modernizr[o[0]]=new Boolean(Modernizr[o[0]])),Modernizr[o[0]][o[1]]=n),a([(n&&0!=n?"":"no-")+o.join("-")]),Modernizr._trigger(e,n)}return Modernizr}var s=[],r=[],l={_version:"3.6.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var A=this;setTimeout(function(){n(A[e])},0)},addTest:function(e,n,A){r.push({name:e,fn:n,options:A})},addAsyncTest:function(e){r.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var f,u=n.documentElement,c="svg"===u.nodeName.toLowerCase();!function(){var e={}.hasOwnProperty;f=o(e,"undefined")||o(e.call,"undefined")?function(e,n){return n in e&&o(e.constructor.prototype[n],"undefined")}:function(n,A){return e.call(n,A)}}(),l._l={},l.on=function(e,n){this._l[e]||(this._l[e]=[]),this._l[e].push(n),Modernizr.hasOwnProperty(e)&&setTimeout(function(){Modernizr._trigger(e,Modernizr[e])},0)},l._trigger=function(e,n){if(this._l[e]){var A=this._l[e];setTimeout(function(){var e,o;for(e=0;e<A.length;e++)(o=A[e])(n)},0),delete this._l[e]}},Modernizr._q.push(function(){l.addTest=i}),Modernizr.addAsyncTest(function(){function e(e,n,A){function o(n){var o=n&&"load"===n.type?1==t.width:!1,a="webp"===e;i(e,a&&o?new Boolean(o):o),A&&A(n)}var t=new Image;t.onerror=o,t.onload=o,t.src=n}var n=[{uri:"data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=",name:"webp"},{uri:"data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==",name:"webp.alpha"},{uri:"data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA",name:"webp.animation"},{uri:"data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=",name:"webp.lossless"}],A=n.shift();e(A.name,A.uri,function(A){if(A&&"load"===A.type)for(var o=0;o<n.length;o++)e(n[o].name,n[o].uri)})}),t(),a(s),delete l.addTest,delete l.addAsyncTest;for(var p=0;p<Modernizr._q.length;p++)Modernizr._q[p]();e.Modernizr=Modernizr}(window,document);</script>
+<!-- -->
+<script id="prepare-html" type="text/javascript">
+        if(!window.game_data){
+			window.game_data = {}
+		}
+		window.game_data.game_target =  "poki"
+    </script>
+<script id="engine-setup" type="text/javascript">
+        var engine_arguments = ["--verify-graphics-calls=false",]
+		engine_arguments.push("--verify-graphics-calls=false")
+	var extra_params = {
+		archive_location_filter: function( path ) {
+			return ("archive" + path + "");
+		},
+		engine_arguments: engine_arguments,
+		custom_heap_size: 67108864,
+		full_screen_container: "#canvas-container",
+		disable_context_menu: true
+	}
+
+	Module['INITIAL_MEMORY'] = extra_params.custom_heap_size;
+
+	Module['onRuntimeInitialized'] = function() {
+		Module.runApp("canvas", extra_params);
+	};
+
+	Module["locateFile"] = function(path, scriptDirectory)
+	{
+		// dmengine*.wasm is hardcoded in the built JS loader for WASM,
+		// we need to replace it here with the correct project name.
+		if (path == "dmengine.wasm" || path == "dmengine_release.wasm" || path == "dmengine_headless.wasm") {
+			path = "Landsofblight.wasm";
+		}
+		return scriptDirectory + path;
+	};
+
+	var is_iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+	var buttonHeight = 0;
+
+
+	buttonHeight = 42;
+	if("poki" === "poki" || "poki" === "yandex_games"
+			|| "poki" === "game_distribution"
+			|| "poki" === "crazy_games" || "poki" === "lg_tv"){
+		buttonHeight = 0
+	}
+
+	// Resize on init, screen resize and orientation change
+	function resize_game_canvas() {
+		// Hack for iOS when exit from Fullscreen mode
+		if (is_iOS) {
+			window.scrollTo(0, 0);
+		}
+
+		var app_container = document.getElementById('app-container');
+		var game_canvas = document.getElementById('canvas');
+		var game_bg = document.getElementById('canvas-bg');
+		var progress_bar_root = document.getElementById('progress-bar-root');
+		var progress_bar_fg = document.getElementById('progress-bar-fg');
+		var progress_bar_bg = document.getElementById('progress-bar-bg');
+		var progress_bar_text = document.getElementById('progress-bar-text');
+		var innerWidth = window.innerWidth;
+		var innerHeight = window.innerHeight - buttonHeight;
+		var width = 960;
+		var height = 540;
+		var targetRatio = width / height;
+		var actualRatio = innerWidth / innerHeight;
+		if( "release" === "release" || "poki" === "poki" || "poki" === "lg_tv"){
+			width = innerWidth;
+			height = innerHeight;
+			app_container.style.width = width + "px";
+			app_container.style.height = height + buttonHeight + "px";
+			game_canvas.width = width;
+			game_canvas.height = height;
+			game_bg.width = width;
+			game_bg.height = height;
+		}
+		else{
+			width = 1067;
+			height = 600;
+	
+	
+	
+	
+		//No scale
+		var margin_left = ((innerWidth - width) / 2);
+		margin_left = margin_left > 0 ? margin_left : 0;
+		var margin_top = ((innerHeight - height) / 2);
+		margin_top = margin_top > 0 ? margin_top : 0;
+		app_container.style.marginLeft = margin_left + "px";
+		app_container.style.marginTop = margin_top + "px";
+	
+		app_container.style.width = width + "px";
+		app_container.style.height = height + buttonHeight + "px";
+		game_canvas.width = width;
+		game_canvas.height = height;
+		game_bg.width = width;
+		game_bg.height = height;
+	}
+		var bar_h = width < height ? width:height;
+		progress_bar_bg.width = Math.min(Math.ceil(bar_h * 0.08 * 274/24),width * 0.9);
+
+		progress_bar_bg.style.marginLeft = - progress_bar_bg.width/2 + "px";
+		progress_bar_fg.width =  Math.ceil(progress_bar_bg.width * 1);
+
+
+		progress_bar_fg.style.marginTop = (progress_bar_bg.width * 0) * (0)/2 + "px";
+		progress_bar_fg.style.marginLeft = -progress_bar_bg.width/2 - progress_bar_fg.width/2 + "px";
+
+		progress_bar_text.style.fontSize = Math.ceil(bar_h * 0.10) + "px";
+		progress_bar_root.style.bottom = Math.ceil(height*0.125 + buttonHeight) + "px";
+	}
+	resize_game_canvas();
+	window.addEventListener('resize', resize_game_canvas, false);
+	window.addEventListener('orientationchange', resize_game_canvas, false);
+	document.addEventListener('fullscreenchange', resize_game_canvas,false);
+    </script>
+<script id="engine-start" type="text/javascript">
+        var currentPercentage = 0
+		Progress.updateProgress = function(percentage) {
+			Progress.notifyListeners(percentage);
+			if(currentPercentage>percentage){
+				percentage = currentPercentage
+			}
+			currentPercentage = percentage
+			var progress_bar_text = document.getElementById('progress-bar-text');
+			progress_bar_text.innerHTML  = "<b>" +  Math.ceil(percentage) + "%</b>";
+
+			var fg = document.getElementById('progress-bar-fg');
+
+			//console.log(fg.width);
+		//	console.log("rect(0px,"  + fg.width * percentage/100 + "px,"  + fg.height+"px," + "0px)" );
+			fg.style.clip="rect(0px,"  + fg.width * percentage/100 + "px,"  + fg.height+"px," + "0px)"
+
+			if(isNaN(percentage)){
+				var progress_bar_root = document.getElementById('progress-bar-root');
+				progress_bar_root.style.visibility = "hidden";
+			}
+		};
+		Progress.addProgress = function (){
+			var progress_bar_root = document.getElementById('progress-bar-root');
+			progress_bar_root.style.visibility = "visible"
+		}
+		Progress.removeProgress = function () {
+			var progress_bar_root = document.getElementById('progress-bar-root');
+			progress_bar_root.style.visibility = "hidden";
+			// Remove any background/splash image that was set in runApp().
+			// Workaround for Safari bug DEF-3061.
+			Module.canvas.style.background = "";
+		}
+		EngineLoader.load("canvas", "Landsofblight");
+    </script>
+<script id="poki-sdk-setup" type="text/javascript">
+        PokiSDK.gameLoadingStart();
+		var data = {};
+		var isLoadFinished = false;
+		Progress.addListener(function(percentage){
+			data.percentageDone = percentage / 100;
+			if (!isLoadFinished)
+				PokiSDK.gameLoadingProgress(data);
+			if (percentage == 100 && !isLoadFinished) {
+				PokiSDK.gameLoadingFinished();
+				isLoadFinished = true;
+			}
+		});
+		Module['onRuntimeInitialized'] = function() {
+			PokiSDK.init().then(()=>{
+				Module.runApp("canvas", extra_params);
+			}).catch(()=>{
+				Module.runApp("canvas", extra_params);
+			});
+		};
+    </script>
+</body>
+</html>
